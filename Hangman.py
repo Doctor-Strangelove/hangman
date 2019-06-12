@@ -7,7 +7,36 @@ import random
 #welcoming the user
 name = input("What is your name? ")
 
-print ("Hello, " + name, "Let's play hangman!)
+print ("Hello, " + name, "please choose the game difficulty by entering the \
+        number next to the option you prefer from those listed.")
+
+#Difficulty options (NO impact on game currently)
+difficulty = {1: 'Easy',2: 'Medium',3: 'Hard'}
+
+#Present difficulty options
+print(difficulty)
+
+#Prompt user to select difficulty level
+diff_input = input("Enter number of difficulty level ")
+
+# Verify user input is int
+try:
+    diff_set = int(diff_input)
+    print("You entered a valid level number: ", diff_set)
+except ValueError:
+    print("Please enter a number. E1") 
+    # Check for failure to loop above.  Most likely fails.
+
+diff_set = int(diff_input)
+
+#Difficulty level chosen match those offered?
+if diff_set in difficulty:
+    print("You chose difficulty level " + diff_input)
+else: 
+    print("Please enter a valid difficulty level: E2")
+    diff_input = input("Enter difficulty level (number) ") 
+# Need to establish proper loop for screening out values >3.  
+# Validation fails after 1st pass...cause it's not a real loop.
 
 #wait for 1 second
 time.sleep(1)
@@ -16,7 +45,8 @@ print ("Start guessing...")
 time.sleep(0.5)
 
 #here is a list of words to choose as our secret word
-word_bank = ["barf","walnut","grand","leaf","missouri","crayon","bizarre","chicken"]
+word_bank = ["barf","walnut","grand","leaf","missouri","crayon","bizarre"
+            ,"chicken"]
 
 #select random word from word_bank for use this round
 word = random.choice(word_bank)
