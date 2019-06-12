@@ -1,6 +1,9 @@
 #importing the time module
 import time
 
+#import random module
+import random
+
 #welcoming the user
 name = input("What is your name? ")
 
@@ -12,9 +15,12 @@ time.sleep(1)
 print ("Start guessing...")
 time.sleep(0.5)
 
-#here we set the secret
-word = "kirabira"
+#here is a list of words to choose as our secret word
+word_bank = ["barf","walnut","grand","leaf","missouri","crayon"]
 
+#select random word from word_bank for use this round
+word = random.choice(word_bank)
+    
 #creates an variable with an empty value
 guesses = ''
 
