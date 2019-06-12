@@ -7,7 +7,7 @@ import random
 #welcoming the user
 name = input("What is your name? ")
 
-print ("Hello, " + name, "Time to play hangman!")
+print ("Hello, " + name, "Let's play hangman!)
 
 #wait for 1 second
 time.sleep(1)
@@ -16,7 +16,7 @@ print ("Start guessing...")
 time.sleep(0.5)
 
 #here is a list of words to choose as our secret word
-word_bank = ["barf","walnut","grand","leaf","missouri","crayon"]
+word_bank = ["barf","walnut","grand","leaf","missouri","crayon","bizarre","chicken"]
 
 #select random word from word_bank for use this round
 word = random.choice(word_bank)
