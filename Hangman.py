@@ -28,6 +28,7 @@ while True:
     else:
         if 0 < int(diff_input) <= 3:
             print("You selected level ", diff_input)
+            diff_set = int(diff_input)
             break
         else:
             diff_input = input("Enter number of difficulty level 3 ")
@@ -38,13 +39,23 @@ time.sleep(1)
 print ("Start guessing...")
 time.sleep(0.5)
 
-#here is a list of words to choose as our secret word
-word_bank = ["barf","walnut","grand","leaf","missouri","crayon","bizarre"
-            ,"chicken"]
+#Word banks - plan to combine these and use word length to tie to difficulty 
+bank_1 = ['easy']
+bank_2 = ['medium']
+bank_3 = ['hard']
 
-#select random word from word_bank for use this round
-word = random.choice(word_bank)
-    
+# Master word bank - have as separate file with much larger selection?
+# word_bank = ["barf","walnut","grand","leaf","missouri","crayon","bizarre"
+#             ,"chicken"]
+
+#Select user dictionary to use per difficulty setting
+if diff_set == 1:
+    word = random.choice(bank_1)
+elif diff_set == 2:
+    word = random.choice(bank_2)
+else:
+    word = random.choice(bank_3)
+
 #creates an variable with an empty value
 guesses = ''
 
