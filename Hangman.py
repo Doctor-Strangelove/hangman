@@ -16,27 +16,21 @@ difficulty = {1: 'Easy',2: 'Medium',3: 'Hard'}
 #Present difficulty options
 print(difficulty)
 
-#Prompt user to select difficulty level
-diff_input = input("Enter number of difficulty level ")
-
-# Verify user input is int
-try:
-    diff_set = int(diff_input)
-    print("You entered a valid level number: ", diff_set)
-except ValueError:
-    print("Please enter a number. E1") 
-    # Check for failure to loop above.  Most likely fails.
-
-diff_set = int(diff_input)
-
-#Difficulty level chosen match those offered?
-if diff_set in difficulty:
-    print("You chose difficulty level " + diff_input)
-else: 
-    print("Please enter a valid difficulty level: E2")
-    diff_input = input("Enter difficulty level (number) ") 
-# Need to establish proper loop for screening out values >3.  
-# Validation fails after 1st pass...cause it's not a real loop.
+# Verify user input is int and between 1 and 3
+# Is using 1-3 ok, or should we see if int is in difficulty as before?
+while True:
+    diff_input = input("Enter number of difficulty level ")
+    try:
+        int(diff_input)
+    except ValueError:
+        #Not a valid number
+        diff_input = input("Enter number of difficulty level 2 ")
+    else:
+        if 0 < int(diff_input) <= 3:
+            print("You selected level ", diff_input)
+            break
+        else:
+            diff_input = input("Enter number of difficulty level 3 ")
 
 #wait for 1 second
 time.sleep(1)
